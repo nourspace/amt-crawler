@@ -1,0 +1,7 @@
+click
+gspread
+oauth2client
+requests
+requests-html
+schedule
+slackclient
