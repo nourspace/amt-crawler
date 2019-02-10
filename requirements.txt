@@ -1,6 +1,7 @@
 click
 gspread
 oauth2client
+pytz
 requests
 requests-html
 schedule

@@ -2,6 +2,7 @@ import time
 from datetime import datetime
 
 import click
+import pytz
 from requests_html import HTMLSession
 
 from notify import update_worksheet, post_to_slack
@@ -35,7 +36,7 @@ def work(url, worksheet, channel, min_bookable):
     bookable = res.html.find(BOOKABLE_CLASS_SELECTOR)
     bookable_count = len(bookable) - 1
     print(f'Bookable appointments: {bookable_count}')
-    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    timestamp = datetime.now(tz=pytz.timezone('CET')).strftime('%Y-%m-%d %H:%M:%S')
     values = [timestamp, bookable_count]
     update_worksheet(worksheet, values)
     if bookable_count >= min_bookable:
