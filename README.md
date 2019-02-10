@@ -14,6 +14,14 @@ pipenv install
 python crawl.py SERVICE_URL
 ```
 
+### With Docker Compose
+
+Rename `docker-compose.example.yml` to `docker-compose.yml` and replace the environment variables
+
+```
+docker-compose up
+```
+
 ## Notifications
 
 ### Google Spreadsheet

@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  amt-crawler:
+    build: .
+    image: mochawich/amt-crawler
+    command: python crawl.py $SERVICE_URL
+    environment:
+      GOOGLE_SERVICE_ACCOUNT_CREDS: |-
+        $CREDENTIALS_JSON_CONTENT
+      SLACK_API_TOKEN: $SLACK_TOKEN
