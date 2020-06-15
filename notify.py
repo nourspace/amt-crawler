@@ -2,7 +2,7 @@ import os
 import json
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-from slackclient import SlackClient
+from slack import WebClient
 
 G_SCOPES = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
 
@@ -27,5 +27,5 @@ def update_worksheet(name, values):
 def post_to_slack(channel, message):
     if not slack_token:
         return
-    slack_client = SlackClient(slack_token)
-    slack_client.api_call('chat.postMessage', channel=channel, text=message)
+    slack_client = WebClient(slack_token)
+    slack_client.chat_postMessage(channel=channel, text=message)
